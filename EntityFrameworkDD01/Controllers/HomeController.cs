@@ -34,9 +34,11 @@ namespace EntityFrameworkDD01.Controllers
             int a =  db.SaveChanges();
             if(a> 0)
             {
-                ViewBag.InsertMessage = "<script>alert('Data Inserted!!')</script>";
-                ModelState.Clear();
-            }
+                    //ViewBag.InsertMessage = "<script>alert('Data Inserted!!')</script>";
+                    TempData["InsertMessage"] = "Data Inserted";
+                    return RedirectToAction("Index");
+                    //ModelState.Clear();
+                }
             else
             {
                 ViewBag.InsertMessage = "<script>alert('Data Not Inserted!!')</script>";
